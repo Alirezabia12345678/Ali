@@ -1,4 +1,32 @@
-# Gradle files
+# Gradle filesimport android.os.Bundle;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+public class MainActivity extends AppCompatActivity {
+
+    private TextView timeTextView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        timeTextView = findViewById(R.id.timeTextView);
+
+        // دریافت زمان فعلی
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+        String currentTime = sdf.format(new Date());
+
+        // نمایش زمان در TextView
+        timeTextView.setText(currentTime);
+    }
+}
 .gradle/
 build/
 
